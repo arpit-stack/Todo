@@ -26,31 +26,18 @@ addItem = (e) => {
             text: this._inputElement.value,
             key: Date.now()
         };
-
-        this.setState((prevState) => {
-            return {
-                items: prevState.items.concat(newItem)
-            };
-        });
+        this.setState({ items: [...this.state.items, newItem ] })
 
         this._inputElement.value = ""; if (this._inputElement.value !== "") {
             let newItem = {
                 text: this._inputElement.value,
                 key: Date.now()
             };
-
-            this.setState((prevState) => {
-                return {
-                    items: prevState.items.concat(newItem)
-                };
-            });
+            this.setState({ items: [...this.state.items, newItem ] })
 
             this._inputElement.value = "";
         }
     }
-
-    console.log(this.state.items);
-
     e.preventDefault();
 }
 render() {
